@@ -216,6 +216,9 @@ export default function Home() {
                     </article>
                     <article id={'animation'} data-inviewport="fade-in" className={css.project_section_article}>
                         <img
+                            src={'static/images/demoFull.png'}
+                            width={'100%'} height={'300px'}/>
+                        <img
                             src={'static/images/demoFull2.png'}
                             width={'100%'} height={'300px'}/>
                         <div className={css.article_caption}>
