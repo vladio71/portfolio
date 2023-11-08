@@ -164,8 +164,8 @@
 .borders {
     max-width: 90vw;
     width: 600px;
-    background: url("static/images/runningBack.png"), url("static/images/runningBack.png"),
-    url("static/images/runningBack.png"), url("static/images/runningBack.png");
+    background: url("/static/images/runningBack.png"), url("/static/images/runningBack.png"),
+    url("/static/images/runningBack.png"), url("/static/images/runningBack.png");
     background-size: 90px 10px;
     background-position: 0px 0px, 0px 5%, 0px 100%, 0px 95%;
     background-repeat: repeat-x;
