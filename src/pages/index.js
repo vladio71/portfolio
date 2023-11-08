@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import {Inter} from 'next/font/google'
 import css from '../styles/Home.module.css'
 import {useEffect} from "react";
@@ -215,9 +216,16 @@ export default function Home() {
                         </div>
                     </article>
                     <article id={'animation'} data-inviewport="fade-in" className={css.project_section_article}>
-                        <img
-                            src={'static/images/demoFull2.png'}
-                            width={'100%'} height={'300px'}/>
+
+                        <Image
+                            src={'/static/images/demoFull2.png'}
+                            alt="Foo image"
+                            // layout={"fill"}
+                            width={'600'} height={'300'}
+                        />
+                        {/*<img*/}
+                        {/*    src={'static/images/demoFull2.png'}*/}
+                        {/*    width={'100%'} height={'300px'}/>*/}
                         <div className={css.article_caption}>
                             <div>
                                 A fully responsive To-do website with drag and drop functionality and CRUD operations
