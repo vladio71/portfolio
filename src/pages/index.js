@@ -248,6 +248,7 @@ export default function Home() {
                     Copyright © Vlad Dobrinov <a href={"mailto:vlad.dobrij123@gmail.com"}>
                     <AiOutlineMail/>
                 </a>
+
                 </footer>
             </main>
         </>
