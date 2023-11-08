@@ -217,15 +217,15 @@ export default function Home() {
                     </article>
                     <article id={'animation'} data-inviewport="fade-in" className={css.project_section_article}>
 
-                        <Image
-                            src={'/static/images/demoFull2.png'}
-                            alt="Foo image"
-                            // layout={"fill"}
-                            width={'600'} height={'300'}
-                        />
-                        {/*<img*/}
-                        {/*    src={'static/images/demoFull2.png'}*/}
-                        {/*    width={'100%'} height={'300px'}/>*/}
+                        {/*<Image*/}
+                        {/*    src={'/static/images/demoFull2.png'}*/}
+                        {/*    alt="Foo image"*/}
+                        {/*    // layout={"fill"}*/}
+                        {/*    width={'600'} height={'300'}*/}
+                        {/*/>*/}
+                        <img
+                            src={'static/images/demo.png'}
+                            width={'100%'} height={'300px'}/>
                         <div className={css.article_caption}>
                             <div>
                                 A fully responsive To-do website with drag and drop functionality and CRUD operations
