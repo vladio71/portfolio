@@ -58,9 +58,11 @@ export default function Home() {
                             Web Portfolio
                         </h1>
                         <div className={css.navigation_links}>
-                            <span className={css.nav_link}>
-                                Home
-                            </span>
+                            <a href={"#about"}>
+                                <span className={css.nav_link}>
+                                    Home
+                                </span>
+                            </a>
                             <a href={"#about"}>
                                 <span className={css.nav_link}>
                                     About
