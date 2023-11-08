@@ -4,6 +4,7 @@ import {Inter} from 'next/font/google'
 import css from '../styles/Home.module.css'
 import {useEffect} from "react";
 import {AiOutlineMail} from 'react-icons/ai';
+import {white} from "next/dist/lib/picocolors";
 
 
 const inter = Inter({subsets: ['latin']})
@@ -73,8 +74,6 @@ export default function Home() {
                                     Projects
                                 </span>
                             </a>
-
-
                         </div>
                     </nav>
                     <div className={css.section}>
@@ -132,10 +131,15 @@ export default function Home() {
                         <img
                             src={'static/images/demoFull3.png'}
                             width={'100%'} height={'300px'}/>
+
+
                         <div className={css.article_caption}>
-
-
+                            <h3>
+                                Whiteboard
+                            </h3>
                             <div>
+
+
                                 Whiteboard app for sketching, note taking, building mind-maps. That altogether helps
                                 think visually and make creative plans and ideas. It can be buggy in some edge
                                 scenarios.
@@ -166,6 +170,9 @@ export default function Home() {
                             src={'static/images/demoFull4.png'}
                             width={'100%'} height={'300px'}/>
                         <div className={css.article_caption}>
+                            <h3>
+                                CSMarket site copy
+                            </h3>
                             <div>
                                 A fully responsive website with nice animations.
                                 <div>
@@ -194,7 +201,9 @@ export default function Home() {
                             src={'static/images/demoFull.png'}
                             width={'100%'} height={'300px'}/>
                         <div className={css.article_caption}>
-
+                            <h3>
+                                Ableton
+                            </h3>
                             <div>
                                 A fully responsive website with some animations.
                                 <div>
@@ -229,6 +238,9 @@ export default function Home() {
                             src={'static/images/demo.png'}
                             width={'100%'} height={'300px'}/>
                         <div className={css.article_caption}>
+                            <h3>
+                                Todoistik
+                            </h3>
                             <div>
                                 A fully responsive To-do website with drag and drop functionality and CRUD operations
                                 with all objects.
