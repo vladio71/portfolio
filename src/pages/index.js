@@ -106,6 +106,10 @@ export default function Home() {
                                     Contact </span>
                             </a>
                         </div>
+                        <a target={'_blank'} href={"/DobrinovVlad_FrontendDeveloper_CV.pdf"}>
+                            <span className={css.button}>
+                                Resume.pdf </span>
+                        </a>
                     </div>
                     <div className={css.section} id={"about"}>
                         <h2 className={css.sectionName}>
