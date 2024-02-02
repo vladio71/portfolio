@@ -15,6 +15,11 @@ body {
     /*--letterBack: #d26363;*/
     --letterBack: #6c85d7;
     --letterFront: black;
+    --largeFontSize: clamp(1rem, 0.75rem + 3.5vw, 4rem);
+    --MiddleFontSize: clamp(1rem, 0.75rem + 2vw, 2.5rem);
+    --SmallFontSize: clamp(.7rem, 0.55rem + 2vw, 1.5rem);
+
+    /*font-size: clamp(.4rem, 0.4rem + 1.5vw, 1rem);*/
 
     width: 100vw;
     /*font-family: 'Inter', sans-serif;*/
@@ -100,7 +105,8 @@ img {
     visibility: hidden;
     /*left: 50%;*/
     /*transform: translate(-50%);*/
-    font-size: 4rem;
+    /*font-size: 4rem;*/
+    font-size: var(--largeFontSize);
 }
 
 

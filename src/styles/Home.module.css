@@ -1,7 +1,7 @@
 .flexNavigation {
     display: flex;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 2rem 0 2rem 2rem;
     margin-right: 2vw;
     position: sticky;
 
@@ -119,23 +119,6 @@
     /*box-shadow: 0 4px 60px 5px rgba(232, 17, 128, 0.73);*/
 }
 
-/*.section {*/
-/*     display: flex;*/
-/*    background: #004aff;*/
-/*    color: white;*/
-/*    z-index: 1000;*/
-/*    flex-direction: column;*/
-/*    max-width: 100vw;*/
-/*    width: fit-content;*/
-/*    flex-wrap: wrap;*/
-/*    gap: 2rem;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    text-align: center;*/
-/*    margin: 5rem auto;*/
-/*    margin-top: 25rem;*/
-/*    overflow-x: hidden;*/
-/*}*/
 
 .someBack {
     position: absolute;
@@ -468,7 +451,7 @@ html body .inViewportHeadingAnimation:after {
 
 @media (max-width: 1000px) {
     .background {
-        background: rgba(255, 255, 255, 0.7);
+        /*background: rgba(255, 255, 255, 0.7);*/
     }
 
     .smallBackCaption {
@@ -478,6 +461,13 @@ html body .inViewportHeadingAnimation:after {
     .smallBackCaption2 {
         left: 105vw;
         top: 30vh
+    }
+
+    .navigation_links{
+        position: relative;
+        right: -1rem;
+        flex-direction: column;
+        align-items: flex-end;
     }
 
 

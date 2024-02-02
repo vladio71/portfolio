@@ -5,8 +5,9 @@ const MainHeading = () => {
     return (
         <section className={css.heading}>
             <div className={`meSection`}
-                 style={{marginTop: '13rem'}}
-                 data-title={"Vlad Dobrinov,"}
+                 style={{marginTop: '15vw'}}
+                 // style={{marginTop: '13rem'}}
+                 data-title={"Vlad Dobrinov,s"}
                  data-inviewport={'heading'}>
                 Vlad Dobrinov,
             </div>

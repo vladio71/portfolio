@@ -1,13 +1,12 @@
 .about {
-  font-size: 2.5rem;
+  font-size: var(--MiddleFontSize);
   background: #004aff;
   color: white;
   margin: 8rem 0 0 auto;
   text-transform: uppercase;
   max-width: 80vw;
-  min-width: 1200px;
-  height: 740px;
-  padding: 10rem 5rem 2rem;
+  min-width: 400px;
+  padding: 10rem 5vw 9vw;
   opacity: 0;
   position: relative;
 }
@@ -22,7 +21,7 @@
   opacity: 0;
   width: 90%;
   margin: 0 auto;
-  font-size: 2.5rem;
+  font-size: var(--MiddleFontSize);
 }
 .about p:before {
   content: "About";
