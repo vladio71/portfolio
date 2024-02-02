@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import css from "../ProjectsSection.module.sass";
+import Image from 'next/image'
 
 
 export type ArticleObject = {
@@ -18,13 +19,26 @@ const Article = (
     }: {
         article: ArticleObject
     }) => {
+
+
+
+
+
     return (
         <>
             <article id={'animation'} data-inviewport="fadein" className={css.project_section_article}>
-                <img
-                    alt={"projectImage"}
-                    src={article.src}
-                    width={'100%'} height={'300px'}/>
+                <div style={{
+                    width: "100%",
+                    height: '300px',
+                    position: "relative"
+                }}>
+                    <Image
+                        alt={"projectImage"}
+                        src={article.src}
+                        fill={true}
+                    />
+                </div>
+
 
                 <div className={css.article_caption}>
 

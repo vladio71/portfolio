@@ -3,7 +3,7 @@ import css from "./ProjectsSection.module.sass";
 import {initialData} from "../../../initialData";
 import Article, {ArticleObject} from "@/components/ProjectSection/Article/Article";
 
-const ProjectSection = () => {
+const ProjectsSection = () => {
     return (
         <>
             <div id={"projects"} className={`meSection`} style={{
@@ -27,4 +27,4 @@ const ProjectSection = () => {
     );
 };
 
-export default ProjectSection;
+export default ProjectsSection;

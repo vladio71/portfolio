@@ -7,7 +7,7 @@ import {AiOutlineMail} from 'react-icons/ai';
 import AboutSection from "@/components/AboutSection/AboutSection";
 import SkillsSection from "@/components/SkillsSection/SkillsSection";
 // import TreeJsBackground from "@/components/TreeJsBackground";
-import ProjectSection from "@/components/ProjectSection/ProjectSection";
+import ProjectsSection from "@/components/ProjectSection/ProjectsSection";
 import Navigation from "@/components/Navigation/Navigation";
 import MainHeading from "@/components/MainHeading/MainHeading";
 const TreeJsBackground = lazy(() => import("@/components/TreeJsBackground"));
@@ -70,7 +70,7 @@ export default function Home() {
                 <MainHeading/>
                 <AboutSection/>
                 <SkillsSection/>
-                <ProjectSection/>
+                <ProjectsSection/>
 
 
                 <footer className={css.footer}>

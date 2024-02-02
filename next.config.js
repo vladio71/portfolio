@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     disableStaticImages: true,
   },
+  images: {
+    domains: ['r4.wallpaperflare.com', "ucarecdn.com"],
+  },
 }
 
 module.exports = nextConfig

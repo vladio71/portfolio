@@ -2,7 +2,7 @@
 
 export const initialData = [
     {
-        src: "http://localhost:3000/static/images/demoFull3.png",
+        src: "https://ucarecdn.com/67099396-1b30-4c1c-b0e2-67a2a13d7c0e/-/preview/800x800/-/quality/smart/-/format/auto/",
         heading: "Whiteboard",
         description: "Whiteboard app for sketching, note taking, building mind-maps. That altogether helps think visually and make creative plans and ideas. It can be buggy in some edge scenarios.",
         techStack: [
@@ -16,7 +16,7 @@ export const initialData = [
         git: " https://whiteboard-ten-xi.vercel.app/"
     },
     {
-        src: "http://localhost:3000/static/images/demoFull4.png",
+        src: "https://ucarecdn.com/149f67d6-1ac4-4092-bdcb-899f1dd4ebb1/-/preview/800x800/-/quality/smart/-/format/auto/",
         heading: "CSMarket site copy",
         description: "A fully responsive website with nice animations.",
         techStack: [
@@ -28,7 +28,7 @@ export const initialData = [
         "git": "https://github.com/vladio71/CSMarket-site-responsive-copy"
     },
     {
-        src: "http://localhost:3000/static/images/demoFull.png",
+        src: "https://ucarecdn.com/f376dfac-03ab-488b-b552-6c65106b497f/-/preview/800x800/-/quality/smart/-/format/auto/",
         heading: "Ableton",
         description: "A fully responsive website with some animations.",
         techStack: [
@@ -41,7 +41,7 @@ export const initialData = [
         git: "https://github.com/vladio71/responsive_music_website"
     },
     {
-        src: "http://localhost:3000/static/images/demo.png",
+        src: "https://ucarecdn.com/faa22632-e026-4103-a92f-0aecdb221541/-/preview/800x800/-/quality/smart/-/format/auto/",
         heading: "Todoistik",
         description: "A fully responsive To-do website with drag and drop functionality and CRUD operations with all objects.",
         techStack: [
