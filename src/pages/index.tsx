@@ -2,13 +2,16 @@ import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import css from '../styles/Home.module.css'
 import React, {useEffect, useRef} from "react";
+import { lazy, Suspense} from 'react';
 import {AiOutlineMail} from 'react-icons/ai';
 import AboutSection from "@/components/AboutSection/AboutSection";
 import SkillsSection from "@/components/SkillsSection/SkillsSection";
-import TreeJsBackground from "@/components/TreeJsBackground";
+// import TreeJsBackground from "@/components/TreeJsBackground";
 import ProjectSection from "@/components/ProjectSection/ProjectSection";
 import Navigation from "@/components/Navigation/Navigation";
 import MainHeading from "@/components/MainHeading/MainHeading";
+const TreeJsBackground = lazy(() => import("@/components/TreeJsBackground"));
+
 
 const inter = Inter({subsets: ['latin']})
 
@@ -59,13 +62,16 @@ export default function Home() {
 
             <main className={css.background}>
 
-                <TreeJsBackground/>
+                <Suspense fallback={null}>
+                    <TreeJsBackground/>
+                </Suspense>
 
                 <Navigation/>
                 <MainHeading/>
                 <AboutSection/>
                 <SkillsSection/>
                 <ProjectSection/>
+
 
                 <footer className={css.footer}>
                     Copyright © Vlad Dobrinov <a href={"mailto:vlad.dobrij123@gmail.com"}>

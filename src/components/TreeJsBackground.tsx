@@ -1,7 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import * as THREE from 'three';
 import {CinematicCamera} from "three/examples/jsm/cameras/CinematicCamera";
-import GUI from "three/examples/jsm/libs/lil-gui.module.min";
 
 
 const TreeJsBackground = () => {
@@ -16,11 +15,7 @@ const TreeJsBackground = () => {
             let camera, scene, raycaster, renderer;
 
             const mouse = new THREE.Vector2();
-
-            init();
-            animate();
-
-            function init() {
+            const init = ()=>{
 
                 camera = new CinematicCamera(60, window.innerWidth / window.innerHeight, 10, 2000);
                 camera.setLens(5);
@@ -90,9 +85,9 @@ const TreeJsBackground = () => {
 
             }
 
-            function animate() {
+            const animate=()=> {
 
-                requestAnimationFrame(animate, renderer.domElement);
+                requestAnimationFrame(animate);
                 scene.rotation.y += 0.001;
 
                 render();
@@ -101,7 +96,7 @@ const TreeJsBackground = () => {
 
             const r = 100
 
-            function render() {
+            const render=()=> {
 
                 camera.lookAt(scene.position);
                 camera.updateMatrixWorld();
@@ -123,6 +118,11 @@ const TreeJsBackground = () => {
                 }
 
             }
+
+            init();
+            animate();
+
+
 
 
         }

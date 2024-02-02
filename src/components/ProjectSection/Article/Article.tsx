@@ -37,7 +37,7 @@ const Article = (
                     <div>
                         {article.description}
                         <div>
-                            {!article.techStack || article.techStack.map(skill => <span>{skill} </span>)}
+                            {!article.techStack || article.techStack.map(skill => <span key={'skill'}>{skill} </span>)}
                         </div>
                     </div>
 

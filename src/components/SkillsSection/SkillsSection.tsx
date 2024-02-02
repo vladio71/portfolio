@@ -64,7 +64,7 @@ const SkillsSection = () => {
         <div className={css.wrapper} data-inviewport={'fadein'} id={"skills"} >
             <div className={css.skills} data-inviewport={'fadein'}>
                 {data.map(skill => {
-                    return <div className={css.skills_item}>
+                    return <div key={skill.name} className={css.skills_item}>
                         {skill.icon}
                         {skill.name}
                     </div>

@@ -9,7 +9,8 @@ export const initialData = [
             "Html",
             "Css",
             "NextJS",
-            "Redux"
+            "Redux",
+            "Firebase"
         ],
         live: "https://github.com/vladio71/whiteboard",
         git: " https://whiteboard-ten-xi.vercel.app/"
