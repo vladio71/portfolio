@@ -28,12 +28,12 @@ export default function Home() {
                     if (entry.target.getAttribute("data-inviewport") === 'fadein') {
                         entry.target.classList.add(css.inViewport, entry.isIntersecting);
                     } else {
-                        setTimeout(() => {
-                            entry.target.classList.add(css.inViewportHeadingAnimation, entry.isIntersecting);
-                        }, 300 * animationDelay.current)
-                        animationDelay.current += 1
-                        if (animationDelay.current == 3)
-                            animationDelay.current = 0
+                        // setTimeout(() => {
+                        //     entry.target.classList.add(css.inViewportHeadingAnimation, entry.isIntersecting);
+                        // }, 300 * animationDelay.current)
+                        // animationDelay.current += 1
+                        // if (animationDelay.current == 3)
+                        //     animationDelay.current = 0
                     }
                 }
             });
@@ -65,7 +65,6 @@ export default function Home() {
                 <Suspense fallback={null}>
                     <TreeJsBackground/>
                 </Suspense>
-
                 <Navigation/>
                 <MainHeading/>
                 <AboutSection/>

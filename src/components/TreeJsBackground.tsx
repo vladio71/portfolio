@@ -12,7 +12,6 @@ const TreeJsBackground = () => {
         if (mountRef.current === 0) {
             mountRef.current += 1
 
-
             let camera, scene, raycaster, renderer;
 
             const mouse = new THREE.Vector2();
@@ -36,10 +35,12 @@ const TreeJsBackground = () => {
                 const triangle = new THREE.TetrahedronGeometry(6, 0);
 
 
-
                 for (let i = 0; i < 800; i++) {
 
-                    const object = new THREE.Mesh(triangle, new THREE.MeshLambertMaterial({color: '#0077ff', emissive: '#0091ff'}));
+                    const object = new THREE.Mesh(triangle, new THREE.MeshLambertMaterial({
+                        color: '#0077ff',
+                        emissive: '#0091ff'
+                    }));
 
                     object.position.x = Math.random() * 2500 - 1250;
                     object.position.y = Math.random() * 800 - 400;
@@ -55,7 +56,10 @@ const TreeJsBackground = () => {
 
                 for (let i = 0; i < 400; i++) {
 
-                    const object = new THREE.Mesh(triangle, new THREE.MeshLambertMaterial({color: '#0077ff', emissive: '#0091ff'}));
+                    const object = new THREE.Mesh(triangle, new THREE.MeshLambertMaterial({
+                        color: '#0077ff',
+                        emissive: '#0091ff'
+                    }));
 
                     object.position.x = Math.random() * 1000 - 500;
                     object.position.y = Math.random() * 1000 - 500;
@@ -84,37 +88,13 @@ const TreeJsBackground = () => {
                     focalDepth: 3,
                 };
 
-                const matChanger = function () {
-
-                    for (const e in effectController) {
-
-                        // if (e in camera.postprocessing.bokeh_uniforms) {
-                        //
-                        //     camera.postprocessing.bokeh_uniforms[e].value = effectController[e];
-                        //
-                        // }
-
-                    }
-
-                    // camera.postprocessing.bokeh_uniforms['znear'].value = camera.near;
-                    // camera.postprocessing.bokeh_uniforms['zfar'].value = camera.far;
-                    // camera.setLens(effectController.focalLength, camera.frameHeight, effectController.fstop, camera.coc);
-                    // effectController['focalDepth'] = camera.postprocessing.bokeh_uniforms['focalDepth'].value;
-
-                };
-
-
-                matChanger();
 
             }
 
             const animate = () => {
-
                 requestAnimationFrame(animate);
                 scene.rotation.y += 0.0005;
-
                 render();
-
             }
 
             const r = 100
@@ -144,9 +124,14 @@ const TreeJsBackground = () => {
 
             init();
             animate();
-
-
+            const handleScroll = () => {
+                scene.rotation.y += 0.0003;
+                render();
+            }
+            window.addEventListener('scroll', handleScroll)
         }
+
+
     }, []);
     return (
         <div>

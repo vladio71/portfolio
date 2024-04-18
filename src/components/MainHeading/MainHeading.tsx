@@ -1,24 +1,50 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import css from "@/styles/Home.module.css";
 
 const MainHeading = () => {
+
+
+    useEffect(() => {
+        const inViewport = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    let divs = Array.from(entry.target.children)
+                    divs.forEach((div, id) => {
+                        setTimeout(() => {
+                            div.classList.add(css.inViewportHeadingAnimation);
+                        }, 300 * id + 1)
+                    })
+                }
+            });
+        };
+        const Obs = new IntersectionObserver(inViewport,{
+            threshold: .5,
+        });
+        document.querySelectorAll('[data-heading]').forEach(el => {
+            Obs.observe(el);
+        });
+
+
+    }, [])
+
     return (
-        <section className={css.heading}>
+        <section className={css.heading}
+                 data-heading={'true'}
+        >
             <div className={`meSection`}
                  style={{marginTop: '15vw'}}
-                 // style={{marginTop: '13rem'}}
                  data-title={"Vlad Dobrinov,s"}
-                 data-inviewport={'heading'}>
+            >
                 Vlad Dobrinov,
             </div>
             <div className={`meSection`}
                  data-title={"highly driven"}
-                 data-inviewport={'heading'}>
+            >
                 highly driven
             </div>
             <div className={`meSection`}
                  data-title={"Front Dev"}
-                 data-inviewport={'heading'}>
+            >
                 Front Dev
             </div>
         </section>
