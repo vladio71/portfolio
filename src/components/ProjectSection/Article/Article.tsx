@@ -56,11 +56,11 @@ const Article = (
 
 
                     <div>
-                        <a className={css.button} href={article.git}
+                        <a className={css.button} href={article.live}
                            target={"_blank"}>
                             Live
                         </a>
-                        <a className={css.button} href={article.live}
+                        <a className={css.button} href={article.git}
                            target={"_blank"}>
                             Github
                         </a>
