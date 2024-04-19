@@ -4,6 +4,9 @@ import {initialData} from "../../../initialData";
 import Article, {ArticleObject} from "@/components/ProjectSection/Article/Article";
 
 const ProjectsSection = () => {
+
+
+
     return (
         <>
             <div id={"projects"} className={`meSection`} style={{

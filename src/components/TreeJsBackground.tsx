@@ -107,28 +107,17 @@ const TreeJsBackground = () => {
                 raycaster.setFromCamera(mouse, camera);
 
 
-                // if (camera.postprocessing.enabled) {
-                //
-                //     camera.renderCinematic(scene, renderer);
-                //
-                // } else {
 
                 scene.overrideMaterial = null;
 
                 renderer.clear();
                 renderer.render(scene, camera);
 
-                // }
 
             }
 
             init();
             animate();
-            const handleScroll = () => {
-                scene.rotation.y += 0.0003;
-                render();
-            }
-            window.addEventListener('scroll', handleScroll)
         }
 
 

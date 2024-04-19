@@ -8,7 +8,7 @@ const MainHeading = () => {
         const inViewport = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    let divs = Array.from(entry.target.children)
+                    let divs = Array.from(entry.target.children) as [HTMLElement]
                     divs.forEach((div, id) => {
                         setTimeout(() => {
                             div.classList.add(css.inViewportHeadingAnimation);

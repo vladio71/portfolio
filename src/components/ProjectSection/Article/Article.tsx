@@ -22,8 +22,6 @@ const Article = (
 
 
 
-
-
     return (
         <>
             <article id={'animation'} data-inviewport="fadein" className={css.project_section_article}>
@@ -35,6 +33,7 @@ const Article = (
                     <Image
                         alt={"projectImage"}
                         src={article.src}
+                        priority={true}
                         fill={true}
                     />
                 </div>

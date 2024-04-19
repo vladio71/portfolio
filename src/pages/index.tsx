@@ -2,7 +2,7 @@ import Head from 'next/head'
 import {Inter} from 'next/font/google'
 import css from '../styles/Home.module.css'
 import React, {useEffect, useRef} from "react";
-import { lazy, Suspense} from 'react';
+import {lazy, Suspense} from 'react';
 import {AiOutlineMail} from 'react-icons/ai';
 import AboutSection from "@/components/AboutSection/AboutSection";
 import SkillsSection from "@/components/SkillsSection/SkillsSection";
@@ -10,6 +10,8 @@ import SkillsSection from "@/components/SkillsSection/SkillsSection";
 import ProjectsSection from "@/components/ProjectSection/ProjectsSection";
 import Navigation from "@/components/Navigation/Navigation";
 import MainHeading from "@/components/MainHeading/MainHeading";
+import {initialData} from "../../initialData";
+
 const TreeJsBackground = lazy(() => import("@/components/TreeJsBackground"));
 
 
@@ -70,8 +72,6 @@ export default function Home() {
                 <AboutSection/>
                 <SkillsSection/>
                 <ProjectsSection/>
-
-
                 <footer className={css.footer}>
                     Copyright © Vlad Dobrinov <a href={"mailto:vlad.dobrij123@gmail.com"}>
                     <AiOutlineMail/>
