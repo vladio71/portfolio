@@ -385,7 +385,26 @@ html body .inViewportHeadingAnimation:after {
     headingAnimation .225s ease-in-out 2s forwards;
 }
 
+.temp{
+    animation: headingAnimationStart .225s ease-in-out  forwards,
+    headingAnimation .225s ease-in-out  forwards;
+}
+
+
 /*transform: translateX(0%);*/
+
+@keyframes an {
+    from {
+        visibility: visible;
+        /*opacity: 1;*/
+        transform: translateX(-100%);
+    }
+    to {
+        visibility: visible;
+        /*opacity: 1;*/
+        transform: translateX(0%);
+    }
+}
 
 @keyframes headingAnimation {
     from {
@@ -463,7 +482,7 @@ html body .inViewportHeadingAnimation:after {
         top: 30vh
     }
 
-    .navigation_links{
+    .navigation_links {
         position: relative;
         right: -1rem;
         flex-direction: column;
@@ -473,7 +492,7 @@ html body .inViewportHeadingAnimation:after {
 
 }
 
-.heading{
+.heading {
     display: flex;
     flex-direction: column;
     justify-content: center;
