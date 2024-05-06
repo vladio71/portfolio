@@ -10,7 +10,7 @@ const MainHeading = () => {
                 if (entry.isIntersecting) {
                     let divs = Array.from(entry.target.children) as [HTMLElement]
                     divs.forEach((div, id) => {
-                        const overlay = div.lastElementChild
+                        const overlay = div.lastElementChild as HTMLElement
                         if (overlay) {
                             div.style.animationDelay = 300 * (id + 1)+1500 + "ms"
                             div.classList.add(css.inViewportHeadingAnimation);
@@ -37,23 +37,18 @@ const MainHeading = () => {
         >
             <div className={`meSection`}
                  style={{marginTop: '15vw'}}
-                // data-title={"Vlad Dobrinov,"}
             >
                 Vlad Dobrinov,
                 <div className={'overlay'}/>
             </div>
 
             <div className={`meSection`}
-                // data-title={"highly driven"}
-
             >
                 highly driven
                 <div className={'overlay'}/>
 
             </div>
-            <div className={`meSection`}
-                // data-title={"Front Dev"}
-            >
+            <div className={`meSection`}>
                 Front Dev
                 <div className={'overlay'}/>
 
