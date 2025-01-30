@@ -12,10 +12,11 @@ const Workplace = ({
   achiveStack,
   setHoveredItemId,
 }: {
+  id: number;
   className: string;
   company: string;
-  dates: string;
   workTitle: string;
+  dates?: string;
   left?: boolean;
   stack?: Array<string>;
   achiveStack?: Array<string>;

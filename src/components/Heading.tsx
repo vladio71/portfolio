@@ -1,4 +1,11 @@
-const Heading = ({ id, children, style }) => {
+import { ReactNode } from "react";
+
+const Heading = ({ id, children, style }:{
+  children: ReactNode,
+  id: string,
+  style?: object
+
+}) => {
   const newStyle = !!style ? style : {};
   return (
     <div

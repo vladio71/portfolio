@@ -22,7 +22,7 @@
     "jsx": "preserve"
   },
 
-  "files": ["./node_modules/wmr/types.d.ts"],
+  // "files": ["./node_modules/wmr/types.d.ts"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "declaration.d.ts"],
   "exclude": ["node_modules"]
 }
