@@ -1,9 +1,66 @@
+.circleGameLine
+    position: relative
+    width: 100%
+    display: flex
+    height: 10px
+  
 
+.animationBox
+  position: absolute
+  display: flex
+  width: 40vw
+  margin: 0 auto
+  left: 50%
+  transform: translate(-50%, -100%) 
+  
+  height: fit-content
+  & svg 
+    display: block
+
+
+
+.hiddenPath
+  opacity: 0
+
+.svg2
+  position: absolute
+
+  
+.circle
+  width: calc( 10px + 6vw )
+  height:  calc( 10px + 6vw )
+  border-radius: 50%
+  background-color: var(--mainBlueBackground)
+  color: black
+  position: absolute
+  text-align: center
+  bottom: .4rem
+  right: -4rem
+  font-size: clamp(0.2rem, 2px + 2vw, 2rem)
+
+
+.paperPlane
+  position: absolute
+  left: 4%
+  bottom: 15%
+  width: fit-content
+  height: fit-content
+  opacity: 0
+  & img 
+    height: 100px
+    transform: rotate(35deg)
+
+
+.planePath
+  position: absolute
+  bottom: 100px
+  width: 90%
+  left: 8%
+  
 .project_section
   display: grid
   place-items: center
   grid-template-columns: repeat(auto-fill, minmax(200px,600px))
-  //width: 65vw
   max-width: 1500px
   margin: 0 auto
   justify-content: center
@@ -18,15 +75,12 @@
   display: flex
   flex-direction: column
   position: relative
-  //left: -5%
-  //width: 90vw
   width: 100%
   max-width: 600px
   height: 100%
   -webkit-font-smoothing: subpixel-antialiased
   transform: translateZ(0)
   backface-visibility: hidden
-  /*transition:  box-shadow .3s ease-in-out,transform .3s ease-in-out;*
   transition: .3s ease-in-out, opacity 1s
   opacity: 0
   box-shadow: 0 0 20px 1px rgba(190, 183, 183, 0.55)

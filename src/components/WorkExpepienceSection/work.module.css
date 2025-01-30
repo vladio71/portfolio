@@ -1,0 +1,231 @@
+.wrapper {
+  position: relative;
+  width: 70%;
+  margin: 0 auto 15vw;
+  display: grid;
+  grid-template-columns: 1fr 0.325fr 1fr;
+  grid-template-areas:
+    "item1 icon1 ."
+    ". icon2 item2"
+    "item3 icon3 .";
+}
+
+
+.crossLine {
+  position: absolute;
+  left: 50%;
+  width: 3px;
+  background: black;
+  transform: translateX(-50%);
+  height: calc(100% + 50px);
+  z-index: -1;
+}
+
+.crossLineArrow {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  margin: 0 auto;
+  transform: translateX(-50%);
+  bottom: calc(0px - 60px);
+  border-color: transparent;
+  border-width: 20px 10px 0;
+  border-style: solid;
+  border-top-color: black;
+}
+
+.item1 {
+  grid-area: item1;
+  position: relative;
+}
+.centerIcon {
+  justify-self: center;
+  margin-top: 6px;
+}
+.icon1 {
+  grid-area: icon1;
+}
+.icon2 {
+  grid-area: icon2;
+}
+.icon3 {
+  grid-area: icon3;
+}
+.item2 {
+  grid-area: item2;
+  position: relative;
+}
+.item3 {
+  grid-area: item3;
+  position: relative;
+}
+
+.circle {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 0, 255);
+  transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.image_frame {
+  width: 25px;
+  height: 25px;
+  position: relative;
+}
+
+.article {
+  background: rgb(0, 0, 255);
+  color: white;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shadowAnimation {
+  box-shadow: 0 0 24px 3px rgba(190, 183, 183);
+  transition: 0.5s ease-in-out, opacity 1s;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translateZ(0);
+}
+
+.shadowAnimation:hover {
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.31);
+  transform: scale(1.001) translateZ(0);
+  backface-visibility: hidden;
+}
+
+.company {
+  color: black;
+  font-size: 1.3rem;
+}
+
+.dates {
+  color: rgba(0, 0, 0, 0.637);
+  margin-top: -1rem;
+  font-size: 0.8rem;
+}
+
+.achivement {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.achivement::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-width: 5px 0px 5px 12px;
+  border-color: transparent;
+  border-left-color: rgb(8 30 101);
+  border-style: solid;
+  display: block;
+  position: relative;
+}
+.stackItems {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  row-gap: 0.3rem;
+}
+
+.stackItem {
+  background: rgb(0, 23, 147);
+  color: rgb(255, 255, 255);
+  padding: 0.4rem 0.8rem;
+  font-size: 0.7rem;
+  border-radius: 2rem;
+}
+
+.arrow {
+  top: 25px;
+  position: absolute;
+  left: -10px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid rgb(0, 0, 255);
+}
+
+.left .arrow {
+  display: block;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-right: none;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid rgb(0, 0, 255);
+}
+
+@media (max-width: 1400px) {
+  .left .arrow {
+    top: 25px;
+    position: absolute;
+    left: -10px;
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid rgb(0, 0, 255);
+    border-left: transparent;
+  }
+  .crossLine {
+    position: absolute;
+    left: 8.5%;
+    width: 3px;
+    background: black;
+    /* transform: translateX(-50%); */
+    height: calc(100% + 50px);
+    z-index: -1;
+  }
+  .crossLineArrow {
+    left: 8.5%;
+  }
+  .wrapper {
+    width: 95%;
+    margin: 0 auto 15vw;
+    grid-template-columns: 0.2fr 1fr;
+    row-gap: 1rem;
+    grid-template-areas:
+      "icon1 item1"
+      "icon2 item2"
+      "icon3 item3";
+  }
+}
+
+@media (max-width: 600px) {
+  .crossLine {
+    display: none;
+  }
+  .crossLineArrow {
+    display: none;
+  }
+  .boxIcon {
+    display: none;
+  }
+
+  .wrapper {
+    width: 100%;
+    margin: 0 auto 15vw;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    grid-template-areas:
+      "item1"
+      "item2"
+      "item3";
+  }
+}

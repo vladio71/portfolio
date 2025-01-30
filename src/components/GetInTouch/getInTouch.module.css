@@ -1,0 +1,58 @@
+.wrapper {
+  padding: 300px 0 30px;
+}
+
+.flexGetInTouch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto 100px;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(1px);
+}
+
+.flexGetInTouch p {
+  font-size: 1.35rem;
+  text-align: center;
+}
+
+.flexGetInTouch .btn {
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: black;
+  border: 3.5px solid white;
+  outline: none;
+  color: white;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  margin-top: 50px;
+  transition: 0.3s ease-in-out, opacity 1s;
+  transform: skewX(-15deg);
+  font-size: 1rem;
+  font-family: var(--InterFont);
+  padding-block: 0;
+  padding-inline: 0;
+  padding: 1.25rem 1.75rem;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.flexGetInTouch .btn:focus {
+  outline: none;
+}
+
+.buttonText {
+  transform: skewX(15deg);
+}
+
+.flexGetInTouch .btn:hover {
+  color: var(--mainBlueBackground);
+  background: transparent;
+  border: 3.5px solid var(--mainBlueBackground);
+}
