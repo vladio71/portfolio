@@ -1,136 +1,139 @@
-import React, {useEffect, useRef} from 'react';
-import * as THREE from 'three';
-import {CinematicCamera} from "three/examples/jsm/cameras/CinematicCamera";
-import {PerspectiveCamera} from "three";
-
+import React, { useEffect, useRef } from "react";
+import * as THREE from "three";
+import { PerspectiveCamera } from "three";
 
 const TreeJsBackground = () => {
+  const refContainer = useRef(null);
+  const mountRef = useRef(0);
+  useEffect(() => {
+    if (mountRef.current === 0) {
+      mountRef.current += 1;
 
-    const refContainer = useRef(null);
-    const mountRef = useRef(0);
-    useEffect(() => {
-        if (mountRef.current === 0) {
-            mountRef.current += 1
+      let camera, scene, raycaster, renderer;
 
-            let camera, scene, raycaster, renderer;
+      const mouse = new THREE.Vector2();
+      const init = () => {
+        camera = new PerspectiveCamera(
+          60,
+          window.innerWidth / window.innerHeight,
+          10,
+          3000
+        );
+        camera.position.set(1, 2, 1300);
 
-            const mouse = new THREE.Vector2();
-            const init = () => {
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
 
-                camera = new PerspectiveCamera(60, window.innerWidth / window.innerHeight, 10, 3000);
-                // camera.setLens(5);
-                // camera.position.set(1, 2, 1000);
-                camera.position.set(1, 2, 1300);
+        scene.add(new THREE.AmbientLight(0xffffff));
 
-                scene = new THREE.Scene();
-                scene.background = new THREE.Color(0xffffff);
+        const light = new THREE.DirectionalLight(0xffffff);
+        light.position.set(1, 1, 1).normalize();
+        scene.add(light);
 
-                scene.add(new THREE.AmbientLight(0xffffff));
+        const triangle = new THREE.TetrahedronGeometry(6, 0);
+        const material = new THREE.MeshLambertMaterial({
+          color: "#0077ff",
+          emissive: "#0091ff",
+        });
 
+        const instancedMesh = new THREE.InstancedMesh(triangle, material, 2000);
+        scene.add(instancedMesh);
 
-                const light = new THREE.DirectionalLight(0xffffff);
-                light.position.set(1, 1, 1).normalize();
-                scene.add(light);
+        const tempMatrix = new THREE.Matrix4();
+        const tempQuaternion = new THREE.Quaternion();
+        const tempPosition = new THREE.Vector3();
+        const tempScale = new THREE.Vector3(1, 1, 1);
 
-                const triangle = new THREE.TetrahedronGeometry(6, 0);
+        for (let i = 0; i < 800; i++) {
+          const x = Math.random() * 2500 - 1250;
+          const y = Math.random() * 800 - 400;
+          const z = Math.random() * 2500 - 1250;
 
+          tempPosition.set(x, y, z);
+          tempQuaternion.setFromEuler(
+            new THREE.Euler(
+              Math.random() * 800 - 400,
+              Math.random() * 800 - 400,
+              Math.random() * 800 - 400
+            )
+          );
 
-                for (let i = 0; i < 800; i++) {
-
-                    const object = new THREE.Mesh(triangle, new THREE.MeshLambertMaterial({
-                        color: '#0077ff',
-                        emissive: '#0091ff'
-                    }));
-
-                    object.position.x = Math.random() * 2500 - 1250;
-                    object.position.y = Math.random() * 800 - 400;
-                    object.position.z = Math.random() * 2500 - 1250;
-
-
-                    object.rotation.set(Math.random() * 800 - 400, Math.random() * 800 - 400, Math.random() * 800 - 400)
-
-                    if (Math.sqrt(Math.pow(object.position.x, 2) + Math.pow(object.position.y, 2) + Math.pow(object.position.z, 2)) < 1000)
-                        scene.add(object);
-
-                }
-
-                for (let i = 0; i < 400; i++) {
-
-                    const object = new THREE.Mesh(triangle, new THREE.MeshLambertMaterial({
-                        color: '#0077ff',
-                        emissive: '#0091ff'
-                    }));
-
-                    object.position.x = Math.random() * 1000 - 500;
-                    object.position.y = Math.random() * 1000 - 500;
-                    object.position.z = Math.random() * 1000 - 500;
-
-                    object.rotation.set(Math.random() * 800 - 400, Math.random() * 800 - 400, Math.random() * 800 - 400)
-
-                    if (Math.sqrt(Math.pow(object.position.x, 2) + Math.pow(object.position.y, 2) + Math.pow(object.position.z, 2)) < 1000)
-                        scene.add(object);
-
-                }
-
-
-                raycaster = new THREE.Raycaster();
-
-                renderer = new THREE.WebGLRenderer({antialias: true});
-                renderer.setPixelRatio(window.devicePixelRatio);
-                renderer.setSize(window.innerWidth, window.innerHeight);
-                refContainer.current && refContainer.current.appendChild(renderer.domElement);
-
-
-                const effectController = {
-                    focalLength: 15,
-                    fstop: 2.8,
-                    showFocus: false,
-                    focalDepth: 3,
-                };
-
-
-            }
-
-            const animate = () => {
-                requestAnimationFrame(animate);
-                scene.rotation.y += 0.0005;
-                render();
-            }
-
-            const r = 100
-
-            const render = () => {
-
-                camera.lookAt(scene.position);
-                camera.updateMatrixWorld();
-
-                raycaster.setFromCamera(mouse, camera);
-
-
-
-                scene.overrideMaterial = null;
-
-                renderer.clear();
-                renderer.render(scene, camera);
-
-
-            }
-
-            init();
-            animate();
+          if (x * x + y * y + z * z < 1000000) {
+            tempMatrix.compose(tempPosition, tempQuaternion, tempScale);
+            instancedMesh.setMatrixAt(i, tempMatrix);
+          }
         }
 
+        for (let i = 0; i < 400; i++) {
+          const x = Math.random() * 1000 - 500;
+          const y = Math.random() * 1000 - 500;
+          const z = Math.random() * 1000 - 500;
 
-    }, []);
-    return (
-        <div>
-            <div ref={refContainer} style={{
-                zIndex: -100,
-                position: "fixed"
-            }}></div>
+          tempPosition.set(x, y, z);
+          tempQuaternion.setFromEuler(
+            new THREE.Euler(
+              Math.random() * 800 - 400,
+              Math.random() * 800 - 400,
+              Math.random() * 800 - 400
+            )
+          );
 
-        </div>
-    );
+          if (x * x + y * y + z * z < 1000000) {
+            tempMatrix.compose(tempPosition, tempQuaternion, tempScale);
+            instancedMesh.setMatrixAt(i, tempMatrix);
+          }
+        }
+
+        raycaster = new THREE.Raycaster();
+
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        refContainer.current &&
+          refContainer.current.appendChild(renderer.domElement);
+
+        const effectController = {
+          focalLength: 15,
+          fstop: 2.8,
+          showFocus: false,
+          focalDepth: 3,
+        };
+      };
+
+      window.addEventListener("resize", onWindowResize, false);
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+      const axis = new THREE.Vector3(0, 1, 0);
+      const angle = 0.0005;
+      function rotateScene() {
+        requestAnimationFrame(rotateScene);
+
+        scene.quaternion.premultiply(
+          new THREE.Quaternion().setFromAxisAngle(axis, angle)
+        );
+
+        renderer.render(scene, camera);
+      }
+
+      init();
+      rotateScene();
+    }
+  }, []);
+  return (
+    <div>
+      <div
+        ref={refContainer}
+        style={{
+          zIndex: -100,
+          position: "fixed",
+        }}
+      ></div>
+    </div>
+  );
 };
 
 export default TreeJsBackground;

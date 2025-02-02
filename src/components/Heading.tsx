@@ -18,7 +18,6 @@ const Heading = ({ id, children, style }:{
         ...newStyle,
       }}
     >
-      {/* Awesome Projects */}
       {children}
     </div>
   );
