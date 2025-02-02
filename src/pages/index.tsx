@@ -1,37 +1,26 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
 import css from "../styles/Home.module.css";
 import React, { useEffect, useRef, useState } from "react";
 import { lazy, Suspense } from "react";
-import { AiOutlineMail } from "react-icons/ai";
 import AboutSection from "@/components/AboutSection/AboutSection";
 import SkillsSection from "@/components/SkillsSection/SkillsSection";
 import ProjectsSection from "@/components/ProjectSection/ProjectsSection";
 import Navigation from "@/components/Navigation/Navigation";
 import MainHeading from "@/components/MainHeading/MainHeading";
-import { initialData } from "../../initialData";
 import WorkExperience from "@/components/WorkExpepienceSection/WorkExperience";
 import GetInTouchSection from "@/components/GetInTouch/GetInTouchSection";
 import { AnimationsStages } from "@/components/ProjectSection/useAnimationProjectSection";
+import cn from "@/utils/classNames";
+import { inter, kanit, oswald } from "@/styles/fonts";
 
 const TreeJsBackground = lazy(() => import("@/components/TreeJsBackground"));
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function Home() {
-  const animationDelay = useRef(0);
-  const [ballGameStage, setBallGameStage] = useState<AnimationsStages>(-1);
-
   useEffect(() => {
     const inViewport = (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (entry.target.getAttribute("data-inviewport") === "fadein") {
-            if (entry.target.getAttribute("data-id") === "0") {
-              setTimeout(() => {
-                setBallGameStage(0);
-              }, 1000);
-            }
             entry.target.classList.add(css.inViewport, entry.isIntersecting);
           }
         }
@@ -59,7 +48,14 @@ export default function Home() {
         <link rel="icon" href="/portfolio.png" />
       </Head>
 
-      <main className={css.background}>
+      <main
+        className={cn(
+          css.background,
+          inter.variable,
+          oswald.variable,
+          kanit.className
+        )}
+      >
         <Suspense fallback={null}>
           <TreeJsBackground />
         </Suspense>
@@ -68,10 +64,7 @@ export default function Home() {
         <AboutSection />
         <WorkExperience />
         <SkillsSection />
-        <ProjectsSection
-          ballGameStage={ballGameStage}
-          setBallGameStage={setBallGameStage}
-        />
+        <ProjectsSection/>
         <GetInTouchSection />
         <footer className={css.footer} id="footer">
           <a href="https://github.com/vladio71/portfolio" target="_blank">

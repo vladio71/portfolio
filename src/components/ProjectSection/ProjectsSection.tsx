@@ -8,7 +8,7 @@ import Heading from "../Heading";
 import cn from "@/utils/classNames";
 import useGsapAndThreeJsAnimation from "./useGsapAndThreeJsAnimation";
 
-const ProjectsSection = ({ ballGameStage, setBallGameStage }) => {
+const ProjectsSection = () => {
   const { handleAnimation, sceneRef, paperPlane } =
     useGsapAndThreeJsAnimation();
 
