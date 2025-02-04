@@ -4,9 +4,10 @@ import { initialData } from "../../../initialData";
 import Article, {
   ArticleObject,
 } from "@/components/ProjectSection/Article/Article";
-import Heading from "../Heading";
+import Heading from "../common/Heading";
 import cn from "@/utils/classNames";
 import useGsapAndThreeJsAnimation from "./useGsapAndThreeJsAnimation";
+import useFadeInItemsAnimation from "../useFadeInItemsAnimation";
 
 const ProjectsSection = () => {
   const { handleAnimation, sceneRef, paperPlane } =

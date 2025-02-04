@@ -9,29 +9,22 @@ import Navigation from "@/components/Navigation/Navigation";
 import MainHeading from "@/components/MainHeading/MainHeading";
 import WorkExperience from "@/components/WorkExpepienceSection/WorkExperience";
 import GetInTouchSection from "@/components/GetInTouch/GetInTouchSection";
-import { AnimationsStages } from "@/components/ProjectSection/useAnimationProjectSection";
 import cn from "@/utils/classNames";
 import { inter, kanit, oswald } from "@/styles/fonts";
+import { relative } from "path";
+import CurtainOverlay from "@/components/CurtainOverlay/CurtainOverlay";
+import useFadeInItemsAnimation from "@/components/useFadeInItemsAnimation";
+import { useParams, usePathname } from "next/navigation";
+import useCustomHashScroll from "@/components/useCustomHashScroll";
 
 const TreeJsBackground = lazy(() => import("@/components/TreeJsBackground"));
 
 export default function Home() {
-  useEffect(() => {
-    const inViewport = (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (entry.target.getAttribute("data-inviewport") === "fadein") {
-            entry.target.classList.add(css.inViewport, entry.isIntersecting);
-          }
-        }
-      });
-    };
+  const [triggerAnimation, setTriggerAnimation] = useState(0);
 
-    const Obs = new IntersectionObserver(inViewport);
-    document.querySelectorAll("[data-inviewport]").forEach((el) => {
-      Obs.observe(el);
-    });
-  }, []);
+  const isReady = triggerAnimation == 1;
+  useCustomHashScroll(isReady);
+  useFadeInItemsAnimation("fadeIn");
 
   return (
     <div
@@ -56,15 +49,34 @@ export default function Home() {
           kanit.className
         )}
       >
-        <Suspense fallback={null}>
+        <CurtainOverlay setTriggerAnimation={setTriggerAnimation} />
+        <div
+          style={{
+            // zIndex: 10,
+            position: "relative",
+          }}
+        >
+          <Suspense fallback={null}>
+            <TreeJsBackground />
+          </Suspense>
+        </div>
+        {/* <Suspense fallback={null}>
           <TreeJsBackground />
-        </Suspense>
-        <Navigation />
-        <MainHeading />
+        </Suspense> */}
+        <div
+          style={{
+            height: "100vh",
+            marginBottom: "10vh",
+          }}
+        >
+          <Navigation triggerAnimation={triggerAnimation} />
+          <MainHeading triggerAnimation={triggerAnimation} />
+        </div>
+
         <AboutSection />
         <WorkExperience />
         <SkillsSection />
-        <ProjectsSection/>
+        <ProjectsSection />
         <GetInTouchSection />
         <footer className={css.footer} id="footer">
           <a href="https://github.com/vladio71/portfolio" target="_blank">

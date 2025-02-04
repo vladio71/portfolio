@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import css from "./work.module.css";
 import Workplace from "./Workplace";
-import Heading from "../Heading";
+import Heading from "../common/Heading";
 import CaseIcon from "./CaseIcon";
 import cn from "@/utils/classNames";
-
 
 const WorkExperience = () => {
   const [hoveredItemId, setHoveredItemId] = useState(-1);
 
-
   return (
     <section>
-      <Heading id="experience">Experience</Heading>
-      <div className={css.wrapper}>
-        <div className={css.crossLine}></div>
-        <div className={css.crossLineArrow}></div>
+      <Heading id="experience" className="fadeIn">
+        Experience
+      </Heading>
+      <div className={cn(css.wrapper)}>
+        <div className={cn(css.crossLine, "fadeIn")}></div>
+        <div className={cn(css.crossLineArrow)}></div>
         <Workplace
           id={1}
           left={true}
-          className={css.item1}
+          className={[css.item1]}
           workTitle="Frontend Developer"
           dates={"September 2024 - present"}
           company={"Fernir"}
@@ -42,8 +42,16 @@ const WorkExperience = () => {
             "Angular",
           ]}
         ></Workplace>
-        <CaseIcon id={1} className={cn(css.icon1,css.boxIcon)} hoveredItemId={hoveredItemId} />
-        <CaseIcon id={2} className={cn(css.icon2,css.boxIcon)} hoveredItemId={hoveredItemId} />
+        <CaseIcon
+          id={1}
+          className={cn(css.icon1, css.boxIcon)}
+          hoveredItemId={hoveredItemId}
+        />
+        <CaseIcon
+          id={2}
+          className={cn(css.icon2, css.boxIcon)}
+          hoveredItemId={hoveredItemId}
+        />
         <Workplace
           id={2}
           className={css.item2}

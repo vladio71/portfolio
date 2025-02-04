@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { PerspectiveCamera } from "three";
+import gsap from "gsap";
 
 const TreeJsBackground = () => {
   const refContainer = useRef(null);
@@ -36,7 +37,7 @@ const TreeJsBackground = () => {
           emissive: "#0091ff",
         });
 
-        const instancedMesh = new THREE.InstancedMesh(triangle, material, 2000);
+        const instancedMesh = new THREE.InstancedMesh(triangle, material, 1000);
         scene.add(instancedMesh);
 
         const tempMatrix = new THREE.Matrix4();
@@ -44,7 +45,7 @@ const TreeJsBackground = () => {
         const tempPosition = new THREE.Vector3();
         const tempScale = new THREE.Vector3(1, 1, 1);
 
-        for (let i = 0; i < 800; i++) {
+        for (let i = 0; i < 700; i++) {
           const x = Math.random() * 2500 - 1250;
           const y = Math.random() * 800 - 400;
           const z = Math.random() * 2500 - 1250;
@@ -64,7 +65,7 @@ const TreeJsBackground = () => {
           }
         }
 
-        for (let i = 0; i < 400; i++) {
+        for (let i = 0; i < 300; i++) {
           const x = Math.random() * 1000 - 500;
           const y = Math.random() * 1000 - 500;
           const z = Math.random() * 1000 - 500;
@@ -87,7 +88,7 @@ const TreeJsBackground = () => {
         raycaster = new THREE.Raycaster();
 
         renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         renderer.setSize(window.innerWidth, window.innerHeight);
         refContainer.current &&
           refContainer.current.appendChild(renderer.domElement);
@@ -101,6 +102,8 @@ const TreeJsBackground = () => {
       };
 
       window.addEventListener("resize", onWindowResize, false);
+      window.addEventListener("scroll", onScroll, { passive: true });
+
       function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -109,18 +112,34 @@ const TreeJsBackground = () => {
       }
       const axis = new THREE.Vector3(0, 1, 0);
       const angle = 0.0005;
-      function rotateScene() {
-        requestAnimationFrame(rotateScene);
+      let lastFrameTime = 0;
+      let targetFPS = 40;
 
-        scene.quaternion.premultiply(
-          new THREE.Quaternion().setFromAxisAngle(axis, angle)
-        );
+      function render(time) {
+        const deltaTime = time - lastFrameTime;
 
+        if (deltaTime < 1000 / targetFPS) {
+          requestAnimationFrame(render);
+          return;
+        }
+
+        lastFrameTime = time;
         renderer.render(scene, camera);
+        requestAnimationFrame(render);
+      }
+
+      function onScroll() {
+        requestAnimationFrame(() => renderer.render(scene, camera));
       }
 
       init();
-      rotateScene();
+      render(performance.now());
+      gsap.to(scene.rotation, {
+        y: Math.PI * 2,
+        duration: 60,
+        repeat: -1,
+        ease: "none",
+      });
     }
   }, []);
   return (

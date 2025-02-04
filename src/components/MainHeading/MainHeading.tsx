@@ -1,60 +1,43 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useReducer, useRef } from "react";
 import css from "@/styles/Home.module.css";
+import gsap from "gsap";
 
-const MainHeading = () => {
+const MainHeading = ({ triggerAnimation }) => {
+  const mainHeadingRef = useRef<HTMLElement>();
 
+  useEffect(() => {
+    if (triggerAnimation == 1) {
+      const timelineOptions = {
+        duration: 1,
+        stagger: {
+          amount: 0.4,
+          ease: "sine.out",
+        },
+      };
+      const allHeadingLines =
+        mainHeadingRef.current.querySelectorAll(".meSection");
 
-    useEffect(() => {
-        const inViewport = (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    let divs = Array.from(entry.target.children) as [HTMLElement]
-                    divs.forEach((div, id) => {
-                        const overlay = div.lastElementChild as HTMLElement
-                        if (overlay) {
-                            div.style.animationDelay = 300 * (id + 1)+1500 + "ms"
-                            div.classList.add(css.inViewportHeadingAnimation);
-                            overlay.style.animationDelay = `${300 * (id + 1)+1000}ms, ${300 * (id + 1) + 2000}ms`
-                            overlay.classList.add(css.temp);
-                        }
-                    })
-                }
-            });
-        };
-        const Obs = new IntersectionObserver(inViewport, {
-            threshold: .5,
-        });
-        document.querySelectorAll('[data-heading]').forEach(el => {
-            Obs.observe(el);
-        });
+      gsap.to(allHeadingLines, {
+        ...timelineOptions,
+        delay: 1,
+        opacity: 1,
+        y: -80,
+        ease: "sine.out",
+        overwrite: "auto",
+      });
+    }
+  }, [triggerAnimation]);
 
+  return (
+    <section ref={mainHeadingRef} className={css.heading}>
+      <div className={`meSection`} style={{ marginTop: "15vw" }}>
+        Vlad Dobrinov,
+      </div>
 
-    }, [])
-
-    return (
-        <section className={css.heading}
-                 data-heading={'true'}
-        >
-            <div className={`meSection`}
-                 style={{marginTop: '15vw'}}
-            >
-                Vlad Dobrinov,
-                <div className={'overlay'}/>
-            </div>
-
-            <div className={`meSection`}
-            >
-                highly driven
-                <div className={'overlay'}/>
-
-            </div>
-            <div className={`meSection`}>
-                Front Dev
-                <div className={'overlay'}/>
-
-            </div>
-        </section>
-    );
+      <div className={`meSection`}>highly driven</div>
+      <div className={`meSection`}>Front Dev</div>
+    </section>
+  );
 };
 
 export default MainHeading;

@@ -15,6 +15,7 @@ import {
   SiTailwindcss,
   SiAxios,
 } from "react-icons/si";
+import useFadeInAnimation from "../useFadeInAnimation";
 
 const data = [
   {
@@ -77,9 +78,11 @@ const data = [
 ];
 
 const SkillsSection = () => {
+  const animationCallback = useFadeInAnimation();
+
   return (
-    <div className={css.wrapper} data-inviewport={"fadein"} id={"skills"}>
-      <div className={css.skills} data-inviewport={"fadein"}>
+    <div ref={animationCallback} className={css.wrapper} id={"skills"}>
+      <div className={css.skills}>
         {data.map((skill, id) => {
           return (
             <div key={id} className={css.skills_item}>

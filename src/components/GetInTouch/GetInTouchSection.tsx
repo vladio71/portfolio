@@ -1,4 +1,4 @@
-import Heading from "../Heading";
+import Heading from "../common/Heading";
 import css from "./getInTouch.module.css";
 
 const GetInTouchSection = () => {

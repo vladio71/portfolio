@@ -13,7 +13,7 @@ const Workplace = ({
   setHoveredItemId,
 }: {
   id: number;
-  className: string;
+  className: string | Array<string>;
   company: string;
   workTitle: string;
   dates?: string;
@@ -23,9 +23,9 @@ const Workplace = ({
   setHoveredItemId: Function;
 }) => {
   return (
-    <>
+    <div className={`${className}`}>
       <div
-        className={`${className} ${css.shadowAnimation} ${left && css.left}`}
+        className={`fadeIn ${css.shadowAnimation} ${css.workplaceOpacity} ${left && css.left}`}
         onMouseEnter={() => setHoveredItemId(id)}
         onMouseLeave={() => setHoveredItemId(-1)}
       >
@@ -49,7 +49,7 @@ const Workplace = ({
         </div>
         <div className={css.arrow} />
       </div>
-    </>
+    </div>
   );
 };
 
