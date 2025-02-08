@@ -167,7 +167,7 @@ export default function useAnimationProjectSection() {
       }
 
       function footprintAnimaton() {
-        timeoutProgression(20, 50, 500, () => {
+        timeoutProgression(20, 50, 320, () => {
           var tmp = mesh.clone();
           tmp.material = new THREE.MeshLambertMaterial({
             color: "#0077ff",
@@ -198,15 +198,14 @@ export default function useAnimationProjectSection() {
       function firstAnimation(proxy, updateMesh) {
         footprintAnimaton();
         gsap.to(proxy, {
-          rotateX: -20,
-          rotatez: -5,
-          duration: 5,
+          rotateX: -18.6,
+          duration: 3.2,
           ease: "power3.out",
           onUpdate: updateMesh,
         });
 
         gsap.to(proxy, {
-          duration: 5,
+          duration: 3.2,
           motionPath: {
             path,
             curviness: 10,
@@ -220,15 +219,14 @@ export default function useAnimationProjectSection() {
       function secondAnimation(proxy, updateMesh) {
         footprintAnimaton();
         gsap.to(proxy, {
-          rotateX: -20,
-          rotatez: -5,
-          duration: 5,
+          rotateX: -15.5,
+          duration: 3.5,
           ease: "power3.out",
           onUpdate: updateMesh,
         });
 
         gsap.to(proxy, {
-          duration: 5,
+          duration: 3.5,
           motionPath: {
             path: path2,
             start: 1,
@@ -403,7 +401,7 @@ export default function useAnimationProjectSection() {
             setTimeout(() => {
               floatingAnimation();
               animCountRef.current = AnimationsStages.firstIdle;
-            }, 4000);
+            }, 2620);
           } else if (animCountRef.current == AnimationsStages.firstIdle) {
             gsapCancelMeshAnimations(mesh);
             makeProxyForMeshAndAnimate(mesh, secondAnimation);
@@ -411,7 +409,7 @@ export default function useAnimationProjectSection() {
             setTimeout(() => {
               floatingAnimation();
               animCountRef.current = AnimationsStages.secondIdle;
-            }, 4000);
+            }, 3000);
           } else if (animCountRef.current == AnimationsStages.secondIdle) {
             gsapCancelMeshAnimations(mesh);
             thirdAnimation();

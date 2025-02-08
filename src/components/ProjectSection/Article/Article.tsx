@@ -30,12 +30,7 @@ const Article = ({ id, article }: { id: number; article: ArticleObject }) => {
               position: "relative",
             }}
           >
-            <Image
-              alt={"projectImage"}
-              src={article.src}
-              priority={true}
-              fill={true}
-            />
+            <Image alt={"projectImage"} src={article.src} fill={true} />
           </div>
 
           <div className={css.article_caption}>

@@ -7,7 +7,6 @@ import Article, {
 import Heading from "../common/Heading";
 import cn from "@/utils/classNames";
 import useGsapAndThreeJsAnimation from "./useGsapAndThreeJsAnimation";
-import useFadeInItemsAnimation from "../useFadeInItemsAnimation";
 
 const ProjectsSection = () => {
   const { handleAnimation, sceneRef, paperPlane } =

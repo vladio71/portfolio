@@ -14,7 +14,7 @@ const useFadeInItemsAnimation = (className, duration = 0.8) => {
     // });
     ScrollTrigger.batch("." + className, {
       batchMax: 4,
-      start: "top 75%",
+      start: "top 90%",
 
       onEnter: (elements, triggers) => {
         gsap.to(elements, {
@@ -27,7 +27,7 @@ const useFadeInItemsAnimation = (className, duration = 0.8) => {
         });
       },
     });
-  });
+  }, []);
 };
 
 export default useFadeInItemsAnimation;

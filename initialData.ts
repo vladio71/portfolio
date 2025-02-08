@@ -1,9 +1,9 @@
 export const initialData = [
   {
-    src: "https://ucarecdn.com/67099396-1b30-4c1c-b0e2-67a2a13d7c0e/-/preview/800x800/-/quality/smart/-/format/auto/",
+    src: "https://ucarecdn.com/59dd6537-5974-4f68-a5ef-1a8d67c884f6/-/preview/800x800/-/quality/smart/-/format/auto/",
     heading: "Whiteboard",
     description:
-      "Whiteboard app for sketching, note taking, building mind-maps. That altogether helps think visually and make creative plans and ideas. It can be buggy in some edge scenarios.",
+      "Whiteboard app for sketching, note taking, building mind-maps. That altogether helps think visually, make creative plans and ideas. It can be buggy in some edge scenarios.",
     techStack: ["Html", "Css", "NextJS", "Redux", "Firebase"],
     git: "https://github.com/vladio71/whiteboard",
     live: "https://whiteboard-ten-xi.vercel.app/",

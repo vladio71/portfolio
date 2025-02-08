@@ -1,10 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import css from "./about.module.sass";
 
-import useFadeInAnimation from "../useFadeInAnimation";
-
 const AboutSection = () => {
-  // const animationCallback = useFadeInAnimation();
   return (
     <>
       <section className={`${css.about} fadeIn`} id={"about"}>

@@ -5,8 +5,8 @@ const nextConfig = {
     disableStaticImages: true,
   },
   images: {
-    domains: ['r4.wallpaperflare.com', "ucarecdn.com"],
+    domains: ["r4.wallpaperflare.com", "ucarecdn.com"],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
