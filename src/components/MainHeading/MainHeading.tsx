@@ -35,7 +35,7 @@ const MainHeading = ({ triggerAnimation }) => {
       </div>
 
       <div className={`meSection`}>highly driven</div>
-      <div className={`meSection`}>Front Dev</div>
+      <div className={`meSection`}>FullStack Dev</div>
     </section>
   );
 };
