@@ -9,7 +9,7 @@ import cn from "@/utils/classNames";
 import { inter, kanit, oswald } from "@/styles/fonts";
 import CurtainOverlay from "@/components/CurtainOverlay/CurtainOverlay";
 import useCustomHashScroll from "@/components/useCustomHashScroll";
-import TreeJsBackground from "@/components/NewThreeJsWithFiber";
+import ParticlesBackground from "@/components/ParticlesBackground";
 import useFadeInItemsAnimation from "@/components/useFadeInItemsAnimation";
 import dynamic from "next/dynamic";
 
@@ -67,7 +67,7 @@ export default function Home() {
             position: "relative",
           }}
         >
-          <TreeJsBackground />
+          <ParticlesBackground />
         </div>
         <div
           style={{
