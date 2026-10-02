@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import css from "./curtain.module.css";
 import gsap from "gsap";
 import cn from "@/utils/classNames";
-import { overlay } from "three/examples/jsm/nodes/Nodes.js";
 
 const CurtainOverlay = ({ setTriggerAnimation }) => {
   const overlayDiv = useRef();

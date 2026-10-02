@@ -5,6 +5,88 @@ import Heading from "../common/Heading";
 import CaseIcon from "./CaseIcon";
 import cn from "@/utils/classNames";
 
+type WorkplaceData = {
+  workTitle: string;
+  company: string;
+  dates: string;
+  achievements: string[];
+  stack: string[];
+};
+
+// Newest first. Cards alternate sides of the timeline, so the grid in
+// work.module.css has one `itemN` / `iconN` area per entry: add a row there
+// when adding a workplace here.
+const workplaces: WorkplaceData[] = [
+  {
+    workTitle: "Backend Developer",
+    company: "VaslyDev",
+    dates: "September 2025 - present",
+    achievements: [
+      "Built the enrichment pipeline on AWS Step Functions and Lambda: it calls third-party REST APIs under strict rate limits, with retries on every step, exponential backoff and dead-letter queues.",
+      "Split the backend into the main app and the enrichment workers, each with its own database: workers run 20 concurrent Lambdas fed from SQS, about 20k entities per run, without slowing the app.",
+      "Made Stripe billing safe at 30+ concurrent webhook events/sec with two-layer idempotency, so credits are never granted twice or lost.",
+      "Ended recurring production DB failures under peak load: traced them via CloudWatch to concurrent CSV pipeline runs and added a load tracking table that limits them.",
+    ],
+    stack: [
+      "Node.js",
+      "TypeScript",
+      "AWS Lambda",
+      "Step Functions",
+      "SQS",
+      "Stripe",
+    ],
+  },
+  {
+    workTitle: "Full-Stack Engineer",
+    company: "Insiders",
+    dates: "January 2025 - September 2025",
+    achievements: [
+      "Rebuilt per-seller sales analytics of a multi-seller e-commerce platform: replaced failing ORM-generated queries with raw SQL (5 to 7 joins) and cached hot results in Redis.",
+      "Scaled real-time chat to 1,000+ concurrent WebSocket connections on one 4-core EC2 instance: three PM2-managed Node processes with Redis pub/sub between them.",
+      "Reconciled separate web and mobile Stripe checkout flows into a single subscription state.",
+      "Set up GitHub Actions CI/CD with separate dev and prod pipelines.",
+    ],
+    stack: [
+      "NestJS",
+      "PostgreSQL",
+      "Redis",
+      "Socket.io",
+      "React Native",
+      "AWS EC2",
+    ],
+  },
+  {
+    workTitle: "Full-Stack Developer",
+    company: "Fernir",
+    dates: "March 2023 - December 2024",
+    achievements: [
+      "Designed and built the GraphQL API as one API for three clients: a mobile marketplace app, a customer web app and an internal staff app.",
+      "Cut infrastructure costs by 25% with a hybrid backend: NestJS for core logic, AWS Lambda for async and spiky workloads.",
+      "Cut routine engineer involvement in content updates from 6-8 hours a week to under 1 hour with an HTML-to-React-Native rendering pipeline.",
+      "Migrated a legacy Angular app to Next.js; added Git pre-commit hooks and linting, cutting code review turnaround by 30%.",
+    ],
+    stack: [
+      "NestJS",
+      "GraphQL",
+      "AWS Lambda",
+      "Redis",
+      "Next.js",
+      "React Native",
+    ],
+  },
+  {
+    workTitle: "Full-Stack Developer",
+    company: "Freelance",
+    dates: "January 2022 - March 2023",
+    achievements: [
+      "Built and deployed web applications for 8+ small business clients on React, Node.js and PostgreSQL.",
+      "Built a 3D project on the Autodesk API for an outside client.",
+      "Automated recurring data and deployment tasks with Python.",
+    ],
+    stack: ["React", "Node.js", "PostgreSQL", "Python", "Autodesk API"],
+  },
+];
+
 const WorkExperience = () => {
   const [hoveredItemId, setHoveredItemId] = useState(-1);
 
@@ -16,72 +98,32 @@ const WorkExperience = () => {
       <div className={cn(css.wrapper)}>
         <div className={cn(css.crossLine, "fadeIn")}></div>
         <div className={cn(css.crossLineArrow)}></div>
-        <Workplace
-          id={1}
-          left={true}
-          className={[css.item1]}
-          workTitle="Fullstack Developer"
-          dates={"January 2025 - present"}
-          company={"Insiders"}
-          setHoveredItemId={setHoveredItemId}
-          achiveStack={[
-            "Engineered an optimized data retrieval system for a complex user management dashboard, implementing advanced pagination and sorting on deeply related Postgres tables with NestJS to ensure high performance at scale.",
-            "Developed a CMS data parsing pipeline integrated with a web administration dashboard, enabling seamless content editing and mobile app control for non-technical users using React, React Native, and NestJS.",
-            "Created a full-stack real-time chat system with Socket.io, supporting both one-to-one and group messaging, built with Next.js and Express.",
-            "Built and optimized high-performance pages in React and React Native, featuring smooth animations, efficient caching, and reliable state management—meticulously aligned with Figma designs and client requirements.",
-            "Resolved cross-platform integration issues on iOS and Android, managed TestFlight builds, streamlined AWS S3 file uploads, and ensured stable project environments using Docker.",
-            "Integrated Facebook and Instagram authentication and enabled in-app video uploads directly to user profiles.",
-            "Implemented custom PDF viewing, filtering logic, and estate update management for a estate marketing project integrated with a Strapi backend.",
-          ]}
-          stack={[
-            "NestJS",
-            "PostgreSQL",
-            "React",
-            "Next.js",
-            "React Native",
-            "Express",
-            "Socket.io",
-            "Strapi",
-            "Docker",
-            "AWS S3",
-          ]}
-        ></Workplace>
-        <CaseIcon
-          id={1}
-          className={cn(css.icon1, css.boxIcon)}
-          hoveredItemId={hoveredItemId}
-        />
-        <CaseIcon
-          id={2}
-          className={cn(css.icon2, css.boxIcon)}
-          hoveredItemId={hoveredItemId}
-        />
-        <Workplace
-          id={2}
-          className={[css.item2]}
-          imageHeight={800}
-          workTitle="Frontend Developer"
-          dates={"September 2023 - December 2024"}
-          company={"Fernir"}
-          setHoveredItemId={setHoveredItemId}
-          achiveStack={[
-            "Developed and maintained web applications, primarily using Next.js and Angular, while also supporting legacy JavaScript code.",
-            "Collaborated with frontend and backend teams to identify and implement solutions for migrating from Angular to Next.js.",
-            "Troubleshot and debugged code to ensure optimal performance and resolve issues.",
-            "Wrote and maintained Git scripts for linting and code formatting",
-            "Created custom components from scratch and adapted existing library components to meet project-specific requirements.",
-            "Conducted code reviews to ensure code quality",
-            "Collaborated with team members to solve complex issues, engaging in discussions and pair programming.",
-          ]}
-          stack={[
-            "JavaScript",
-            "TypeScript",
-            "Tailwind",
-            "ReactJs",
-            "NextJs",
-            "Angular",
-          ]}
-        ></Workplace>
+        {workplaces.map((workplace, index) => {
+          const id = index + 1;
+          const isLeft = index % 2 === 0;
+
+          return (
+            <React.Fragment key={workplace.company}>
+              <Workplace
+                id={id}
+                left={isLeft}
+                imageHeight={isLeft ? undefined : 800}
+                className={css[`item${id}`]}
+                workTitle={workplace.workTitle}
+                dates={workplace.dates}
+                company={workplace.company}
+                setHoveredItemId={setHoveredItemId}
+                achiveStack={workplace.achievements}
+                stack={workplace.stack}
+              />
+              <CaseIcon
+                id={id}
+                className={cn(css[`icon${id}`], css.boxIcon)}
+                hoveredItemId={hoveredItemId}
+              />
+            </React.Fragment>
+          );
+        })}
       </div>
     </section>
   );

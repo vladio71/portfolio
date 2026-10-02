@@ -2,77 +2,81 @@ import React from "react";
 import css from "./skills.module.sass";
 import { FaReact, FaNode } from "react-icons/fa";
 import {
-  SiNextdotjs,
-  SiRedux,
-  SiFirebase,
-  SiGit,
+  SiAmazonaws,
+  SiDocker,
+  SiExpo,
+  SiGraphql,
   SiJavascript,
-  SiTypescript,
+  SiNestjs,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPython,
+  SiRedis,
+  SiStripe,
   SiThreedotjs,
-  SiHtml5,
-  SiCss3,
-  SiSass,
-  SiTailwindcss,
-  SiAxios,
+  SiTypescript,
 } from "react-icons/si";
 
 const data = [
+  {
+    icon: <SiTypescript />,
+    name: "TypeScript",
+  },
+  {
+    icon: <SiJavascript />,
+    name: "JavaScript",
+  },
+  {
+    icon: <FaNode />,
+    name: "Node.js",
+  },
+  {
+    icon: <SiNestjs />,
+    name: "NestJS",
+  },
+  {
+    icon: <SiPostgresql />,
+    name: "PostgreSQL",
+  },
+  {
+    icon: <SiRedis />,
+    name: "Redis",
+  },
+  {
+    icon: <SiAmazonaws />,
+    name: "AWS",
+  },
+  {
+    icon: <SiDocker />,
+    name: "Docker",
+  },
   {
     icon: <FaReact />,
     name: "React",
   },
   {
     icon: <SiNextdotjs />,
-    name: "Next",
+    name: "Next.js",
   },
   {
-    icon: <SiTailwindcss />,
-    name: "Tailwind",
-  },
-  {
-    icon: <SiAxios />,
-    name: "Axios",
-  },
-  {
-    icon: <SiRedux />,
-    name: "Redux",
-  },
-  {
-    icon: <SiFirebase />,
-    name: "Firebase",
-  },
-  {
-    icon: <SiGit />,
-    name: "Git",
-  },
-  {
-    icon: <SiJavascript />,
-    name: "Javascript",
-  },
-  {
-    icon: <SiTypescript />,
-    name: "Typescript",
+    icon: <SiExpo />,
+    name: "Expo",
   },
   {
     icon: <SiThreedotjs />,
-    name: "ThreeJs",
+    name: "Three.js",
   },
   {
-    icon: <FaNode />,
-    name: "NodeJS",
+    icon: <SiGraphql />,
+    name: "GraphQL",
   },
   {
-    icon: <SiHtml5 />,
-    name: "HTML",
-  },
-
-  {
-    icon: <SiCss3 />,
-    name: "CSS",
+    icon: <SiPython />,
+    name: "Python",
   },
   {
-    icon: <SiSass />,
-    name: "SASS",
+    icon: <SiStripe />,
+    name: "Stripe",
   },
 ];
 
@@ -80,15 +84,14 @@ const SkillsSection = () => {
   return (
     <div className={`${css.wrapper} fadeIn`} id={"skills"}>
       <div className={css.skills}>
-        {data &&
-          data.map((skill, id) => {
-            return (
-              <div key={id} className={css.skills_item}>
-                {skill.icon}
-                {skill.name}
-              </div>
-            );
-          })}
+        {data.map((skill) => {
+          return (
+            <div key={skill.name} className={css.skills_item}>
+              {skill.icon}
+              {skill.name}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

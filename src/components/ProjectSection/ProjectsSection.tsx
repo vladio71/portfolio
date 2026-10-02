@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import css from "./ProjectsSection.module.sass";
 import { initialData } from "../../../initialData";
 import Article, {
@@ -9,12 +9,7 @@ import cn from "@/utils/classNames";
 import useGsapAndThreeJsAnimation from "./useGsapAndThreeJsAnimation";
 
 const ProjectsSection = () => {
-  const { handleAnimation, sceneRef, paperPlane } =
-    useGsapAndThreeJsAnimation();
-
-  useEffect(() => {
-    handleAnimation();
-  }, [sceneRef.current]);
+  const { sceneRef, paperPlane } = useGsapAndThreeJsAnimation();
 
   return (
     <>

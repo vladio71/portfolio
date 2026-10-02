@@ -34,8 +34,8 @@ const MainHeading = ({ triggerAnimation }) => {
         Vlad Dobrinov,
       </div>
 
-      <div className={`meSection`}>highly driven</div>
-      <div className={`meSection`}>FullStack Dev</div>
+      <div className={`meSection`}>Full-Stack Engineer</div>
+      <div className={`meSection`}>Node.js · AWS · 3D</div>
     </section>
   );
 };

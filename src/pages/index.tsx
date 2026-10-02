@@ -9,7 +9,7 @@ import cn from "@/utils/classNames";
 import { inter, kanit, oswald } from "@/styles/fonts";
 import CurtainOverlay from "@/components/CurtainOverlay/CurtainOverlay";
 import useCustomHashScroll from "@/components/useCustomHashScroll";
-import TreeJsBackground from "@/components/NewThreeJsWithFiber";
+import ParticlesBackground from "@/components/ParticlesBackground";
 import useFadeInItemsAnimation from "@/components/useFadeInItemsAnimation";
 import dynamic from "next/dynamic";
 
@@ -47,9 +47,22 @@ export default function Home() {
       }}
     >
       <Head>
-        <title>Web Portfolio</title>
+        <title>Vlad Dobrinov | Full-Stack Engineer</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Vlad Dobrinov, full-stack engineer: Node.js and TypeScript on AWS, React and Next.js on the front end, 3D on the web with Three.js."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Vlad Dobrinov | Full-Stack Engineer"
+        />
+        <meta
+          property="og:description"
+          content="Node.js and TypeScript on AWS, React and Next.js on the front end, 3D on the web with Three.js."
+        />
         <link rel="icon" href="/portfolio.png" />
       </Head>
 
@@ -67,7 +80,7 @@ export default function Home() {
             position: "relative",
           }}
         >
-          <TreeJsBackground />
+          <ParticlesBackground />
         </div>
         <div
           style={{
