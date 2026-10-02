@@ -47,9 +47,22 @@ export default function Home() {
       }}
     >
       <Head>
-        <title>Web Portfolio</title>
+        <title>Vlad Dobrinov | Full-Stack Engineer</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Vlad Dobrinov, full-stack engineer: Node.js and TypeScript on AWS, React and Next.js on the front end, 3D on the web with Three.js."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Vlad Dobrinov | Full-Stack Engineer"
+        />
+        <meta
+          property="og:description"
+          content="Node.js and TypeScript on AWS, React and Next.js on the front end, 3D on the web with Three.js."
+        />
         <link rel="icon" href="/portfolio.png" />
       </Head>
 

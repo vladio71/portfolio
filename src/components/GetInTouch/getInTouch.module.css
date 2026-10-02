@@ -54,3 +54,24 @@
   background: transparent;
   border: 3.5px solid var(--mainBlueBackground);
 }
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2.5rem;
+  margin-top: 2rem;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  color: black;
+  transition: color 0.3s ease-in-out;
+}
+
+.link:hover {
+  color: var(--mainBlueBackground);
+}
